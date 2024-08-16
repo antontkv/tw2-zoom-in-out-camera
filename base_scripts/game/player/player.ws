@@ -266,6 +266,7 @@ import class CPlayer extends CActor
 	private saved var radialBlurTarget					: CNode;
 	private saved var turnOffCombatCamera				: bool;
 	var	soundMaterials									: C2dArray;
+	private var configuredCameraInOut					: float;  // Zoom In/Out Camera +
 	
 	// MOVEMENT
 	private				var rawPlayerSpeed 				: float;
@@ -3343,6 +3344,11 @@ import class CPlayer extends CActor
 				theGame.GetArenaManager().UpdateArenaHUD(false);
 			}
 		}
+
+		// Zoom In/Out Camera +++
+		if (!theGame.ReadConfigParamFloat( "User", "ZoomCamera", "CameraInOut", configuredCameraInOut ))
+			configuredCameraInOut = 0.0;
+		// Zoom In/Out Camera ---
 	}
 	
 	event OnScriptReloading()

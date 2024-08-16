@@ -242,8 +242,8 @@ import state Movable in CPlayer extends Base
 		// Update camera
 		if ( thePlayer.GetCurrentStateName() != 'CombatSteel' && thePlayer.GetCurrentStateName() != 'CombatSilver' )
 		{
-			parent.cameraFurther = 0.0;
-			parent.cameraFurtherCurrent = 0.0;
+			parent.cameraFurther = parent.configuredCameraInOut;  // Zoom In/Out Camera change
+			parent.cameraFurtherCurrent = parent.configuredCameraInOut;  // Zoom In/Out Camera change
 		}
 		
 		if ( !parent.IsPlayerCameraBlocked() )

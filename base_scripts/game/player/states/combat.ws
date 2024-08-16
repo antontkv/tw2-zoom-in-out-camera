@@ -1707,14 +1707,14 @@ state Combat in CPlayer extends ExtendedMovable
 			Enemies = parent.FindEnemiesInCombatArea();
 			if (Enemies.Size() < 1)
 			{
-				parent.cameraFurther = 0.0;
+				parent.cameraFurther = parent.configuredCameraInOut;  // Zoom In/Out Camera change
 			} else
 			{	
-				parent.cameraFurther = Enemies.Size();
+				parent.cameraFurther = Enemies.Size() + parent.configuredCameraInOut;  // Zoom In/Out Camera change
 				Enemies.Clear();
 				Enemies = parent.FindEnemiesInCombatArea();
 				parent.cameraFurther = parent.cameraFurther + ( ( Enemies.Size() ) * 2 ) / 3.5;
-				if (parent.cameraFurther > 3.0) parent.cameraFurther = 3.0;
+				if (parent.cameraFurther > 3.0 + parent.configuredCameraInOut) parent.cameraFurther = 3.0 + parent.configuredCameraInOut;  // Zoom In/Out Camera change
 			}
 
 	}
